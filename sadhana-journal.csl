@@ -67,28 +67,14 @@
       <if type="thesis" match="any">
         <group delimiter=", ">
           <text variable="title"/>
-          <choose>
-            <if variable="genre">
-              <text variable="genre"/>
-            </if>
-            <else>
-              <text value="Ph.D. thesis"/>
-            </else>
-          </choose>
+          <text variable="genre"/>
         </group>
       </if>
       <else-if type="software" match="any">
         <group delimiter=" ">
           <text variable="title"/>
           <text variable="version" prefix="(Version " suffix=")"/>
-          <choose>
-            <if variable="genre">
-              <text variable="genre"/>
-            </if>
-            <else>
-              <text value="Software"/>
-            </else>
-          </choose>
+          <text variable="genre"/>
         </group>
       </else-if>
       <else>
@@ -131,14 +117,14 @@
       </if>
       <else-if type="chapter entry-dictionary entry-encyclopedia" match="any">
         <group delimiter=" ">
-          <text value="In:"/>
+          <text term="in" text-case="capitalize-first" suffix=":"/>
           <text variable="container-title"/>
           <text macro="editor"/>
         </group>
       </else-if>
       <else-if type="paper-conference" match="any">
         <group delimiter=" ">
-          <text value="In:"/>
+          <text term="in" text-case="capitalize-first" suffix=":"/>
           <text variable="container-title"/>
         </group>
       </else-if>
